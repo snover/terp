@@ -1,0 +1,9 @@
+0.0 <p>stock exchange</p> <p>stock market</p>
+0.2 <p>sharp drop</p> <p>sharp fall</p>
+0.5 3.0 <p>shares of ez</p> <p>stocks from theh czech energy enterprise ( ez )</p>
+0 0 <p>ez </p> <p>e.z.</p>
+0 0 <p>ez </p> <p>e . z .</p>
+0.0 0.0 <p>american house of representatives</p> <p>u . s . house of representatives</p>
+0.0 0.0 <p>american house of representatives</p> <p>u.s. house of representatives</p>
+0.0 1.0 <p>american</p> <p>u . s .</p>
+0.0 1.0 <p>american</p> <p>u.s.</p>

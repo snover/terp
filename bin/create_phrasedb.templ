@@ -1,0 +1,20 @@
+#!/bin/bash
+
+#####################################################################
+###
+### EDIT THESE LINES APPROPRIATELLY
+###
+#####################################################################
+PATH_TO_JAVA="+CHANGE_WITH_PATH_TO_JAVA+/bin/java"
+PATH_TO_TER="+CHANGE_WITH_PATH_TO_TER+"
+MEM_PAR="-Xms1G -Xmx3G"
+
+#####################################################################
+###
+### DO NOT EDIT BELOW HERE
+###
+#####################################################################
+
+mkdir -p $2
+${PATH_TO_JAVA} ${MEM_PAR} -jar ${PATH_TO_TER}/dist/lib/create_phrasedb.jar $@
+exit $?

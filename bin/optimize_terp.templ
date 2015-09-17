@@ -1,0 +1,20 @@
+#!/bin/bash
+
+#####################################################################
+###
+### EDIT THESE TWO LINES APPROPRIATELLY
+###
+#####################################################################
+PATH_TO_JAVA="+CHANGE_WITH_PATH_TO_JAVA+/bin/java"n
+PATH_TO_TER="+CHANGE_WITH_PATH_TO_TER+"
+MEM_PAR="-Xms1G -Xmx3G"
+
+#####################################################################
+###
+### DO NOT EDIT BELOW HERE
+###
+#####################################################################
+
+${PATH_TO_JAVA} ${MEM_PAR} -jar ${PATH_TO_TER}/dist/lib/optimize_terp.jar $@
+
+exit $?

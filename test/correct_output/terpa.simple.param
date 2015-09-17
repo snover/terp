@@ -1,0 +1,45 @@
+Verbose (boolean)                        : false
+Normalize (boolean)                      : true
+New Normalization (boolean)              : false
+Use Average Length (boolean)             : true
+Show All References (boolean)            : false
+Case Sensitive (boolean)                 : false
+Strip Punctuation (boolean)              : false
+Reference File (filename)                : test/sample.ref.sgm
+Hypothesis File (filename)               : test/sample.hyp.sgm
+Output Formats (list)                    : param nist pra
+Output Prefix (filename)                 : test/output/terpa.simple.
+Beam Width (integer)                     : 35
+Reference Length File (filename)         : 
+Shift Distance (integer)                 : 50
+Shift Size (integer)                     : 10
+Cap Maximum TER (boolean)                : true
+Adjust Phrase Table Func (string)        : STD
+Adjust Phrase Table Params (float list)  : -0.2306579294476191 -0.1469465037633749 -0.07843705907022736 0.17708577297831574
+Adjust Phrase Table Min (float)          : 0.0
+Adjust Phrase Table Max (float)          : Infinity
+Use Porter Stemming (boolean)            : true
+Use WordNet Synonymy (boolean)           : true
+WordNet Database Directory (filename)    : /opt/WordNet-3.0/dict/
+Word Class File (filename)               : 
+Default Deletion Cost (float)            : 1.4269364675533365
+Default Stem Cost (float)                : 0.0
+Default Synonym Cost (float)             : 0.0
+Default Insertion Cost (float)           : 0.2588527567630183
+Default Substitution Cost (float)        : 1.5565478292505814
+Default Match Cost (float)               : 0.0
+Default Shift Cost (float)               : 0.5620538767397316
+Filter Phrase Table (boolean)            : true
+Dump Phrase Table (boolean)              : false
+Shift Constraint (string)                : relax
+Shift Stop Word List (string)            : /nfs/titan/u87/msnover/terp/data/shift_word_stop_list.txt
+Weight File (filename)                   : 
+Generalize Numbers (boolean)             : false
+Normalize Numbers (boolean)              : false
+Normalization File (filename)            : 
+Normalize Phrase Table (boolean)         : false
+Sum Duplicate Phrases (boolean)          : false
+Phrase Database (filename)               : test/sample.pt.db
+Ignore Missing Hypothesis (boolean)      : false
+Ignore Test Set ID (boolean)             : false
+Use Multi Word Class (boolean)           : false

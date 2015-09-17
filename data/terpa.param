@@ -1,0 +1,31 @@
+Normalize (boolean)                      : true
+Case Sensitive (boolean)                 : false
+Strip Punctuation (boolean)              : false
+Beam Width (integer)                     : 35
+Shift Distance (integer)                 : 50
+Shift Size (integer)                     : 10
+Default Deletion Cost (float)            : 1.4269364675533365
+Default Insertion Cost (float)           : 0.2588527567630183
+Default Substitution Cost (float)        : 1.5565478292505814
+Default Match Cost (float)               : 0.0
+Default Shift Cost (float)               : 0.5620538767397316
+Default Stem Cost (float)                : 0.0
+Default Synonym Cost (float)             : 0.0
+Cap Maximum TER (boolean)                : true
+Use Porter Stemming (boolean)            : true
+Use WordNet Synonymy (boolean)           : true
+Word Class File (filename)               : 
+Adjust Phrase Table Func (string)        : STD
+Adjust Phrase Table Params (float list)  : -0.2306579294476191 -0.1469465037633749 -0.07843705907022736 0.17708577297831574
+Adjust Phrase Table Min (float)          : 0.0
+Adjust Phrase Table Max (float)          : 
+Shift Constraint (string)                : relax
+Filter Phrase Table (boolean)            : true
+Use Average Length (boolean)             : true
+Show All References (boolean)            : false
+Weight File (filename)                   : 
+Generalize Numbers (boolean)             : false
+Normalize Numbers (boolean)              : false
+Normalization File (filename)            : 
+Normalize Phrase Table (boolean)         : false
+Sum Duplicate Phrases (boolean)          : false

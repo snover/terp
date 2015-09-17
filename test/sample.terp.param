@@ -1,0 +1,5 @@
+Phrase Database (filename)               : test/sample.pt.db
+Reference File (filename)                : test/sample.ref.sgm
+Hypothesis File (filename)               : test/sample.hyp.sgm
+Output Formats (list)                    : param nist pra
+Output Prefix (filename)                 : test/output/terpa.simple.

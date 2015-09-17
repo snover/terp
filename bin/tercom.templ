@@ -1,0 +1,19 @@
+#!/bin/bash
+
+#####################################################################
+###
+### EDIT THESE TWO LINES APPROPRIATELLY
+###
+#####################################################################
+PATH_TO_JAVA="+CHANGE_WITH_PATH_TO_JAVA+/bin/java"
+PATH_TO_TER="+CHANGE_WITH_PATH_TO_TER+"
+
+#####################################################################
+###
+### DO NOT EDIT BELOW HERE
+###
+#####################################################################
+
+${PATH_TO_JAVA} -jar ${PATH_TO_TER}/dist/lib/tercom.jar $@
+
+exit $?

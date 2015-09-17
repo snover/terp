@@ -1,0 +1,26 @@
+<refset trglang="en" setid="newstest2009" srclang="any">
+<doc sysid="ref" docid="ihned.cz/2008/09/30/36776" genre="news" origlang="cz">
+<hl>
+<seg id="1"> Prague Stock Market falls to minus by the end of the trading day </seg>
+</hl>
+<p>
+<seg id="2"> After a sharp drop in the morning, the Prague Stock Market corrected its losses. </seg>
+<seg id="3"> Transactions with stocks from the Czech Energy Enterprise (EZ) reached nearly half of the regular daily trading. </seg>
+</p>
+<p>
+<seg id="4"> The Prague Stock Market immediately continued its fall from Monday at the beginning of Tuesday's trading, when it dropped by nearly six percent. </seg>
+<seg id="5"> This time the fall in stocks on Wall Street is responsible for the drop. </seg>
+<seg id="6"> The reaction of the market to the results of the vote in the American House of Representatives, which refused to support the plan for the stabilization of the financial sector there, has manifested itself here as well. </seg>
+</p>
+</doc>
+<doc sysid="ref" docid="ihned.cz/2008/09/29/36559" genre="news" origlang="cz">
+<hl>
+<seg id="1"> Congress yields: US government can pump 700 billion dollars into banks </seg>
+</hl>
+<p>
+<seg id="2"> The top representatives of the American Congress and George W. Bush's cabinet have agreed upon a broader form of the agreement on
+ financial assistance for the American financial system. </seg>
+<seg id="3"> The vote on it will take place at the beginning of next week. </seg>
+</p>
+</doc>
+</refset>

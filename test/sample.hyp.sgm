@@ -1,0 +1,26 @@
+<tstset trglang="en" setid="newstest2009" srclang="any">
+<doc sysid="sample" docid="ihned.cz/2008/09/30/36776" genre="news" origlang="cz">
+<hl>
+<seg id="1"> The Prague stock exchange at the end of the day </seg>
+</hl>
+<p>
+<seg id="2"> After the sharp fall in the morning, the Prague Stock Exchange correct its losses. </seg>
+<seg id="3"> The transactions with shares of ez reached almost half of the normal daily day. </seg>
+</p>
+<p>
+<seg id="4"> The Prague stock exchange, at the start of trading Tuesday, to the fall on Monday when it fell by nearly six percent. 
+</seg>
+<seg id="5"> This time, the is due to the drop in shares on Wall Street. </seg>
+<seg id="6"> The US, also is the reaction of the market to the outcome of the vote in the U.S. House of Representatives, which had refused to support a stabilization plan to stabilize the financial sector. </seg>
+</p>
+</doc>
+<doc sysid="sample" docid="ihned.cz/2008/09/29/36559" genre="news" origlang="cz">
+<hl>
+<seg id="1"> Congress gave: The U.S. government can inject $700 billion dollars in the banks </seg>
+</hl>
+<p>
+<seg id="2"> The representatives of the U.S. Congress and the government of President George W. Bush have agreed on a broader terms of agreement on financial assistance for the American financial system. </seg>
+<seg id="3"> It will be vote on early next week. </seg>
+</p>
+</doc>
+</tstset>

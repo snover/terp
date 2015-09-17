@@ -1,0 +1,102 @@
+<?xml version="1.0"?>
+<!DOCTYPE project>
+<project name="JAVATER2" default="dist" basedir=".">
+<property name="src" value="src"/>
+<property name="build" value="build"/>
+<property name="dist" value="dist"/>
+
+<property name="terpexe" value="terp"/>
+<property name="terpexe_mc" value="com.bbn.mt.terp.TERplus"/>
+
+<property name="tercomexe" value="tercom"/>
+<property name="tercomexe_mc" value="com.bbn.mt.ter.TERtest"/>
+
+<property name="optexe" value="optimize_terp"/>
+<property name="optexe_mc" value="com.bbn.mt.terp.OptimizeTER"/>
+
+<property name="cdbexe" value="create_phrasedb"/>
+<property name="cdbexe_mc" value="com.bbn.mt.terp.phrasedb.CreatePhraseDB"/>
+
+  <target name="init">
+  <tstamp/>
+    <echo> CREATING TERp DIRECTORIES. </echo>
+    <mkdir dir="${build}"/>
+  </target>
+
+  <target name="compile" depends="init">
+    <echo> COMPILING THE TERp SOURCE PROGRAM. </echo>
+    <javac srcdir="${src}" destdir="${build}" nowarn="on" debug="on" optimize="on" classpath="${src}"/>
+     <!-- We need to copy the edu and com/sleepycat packages so that they'll be in the jar file -->
+     <copy todir="${build}/edu">
+       <fileset dir="${src}/edu"/>
+     </copy>
+     <copy todir="${build}/com/sleepycat">
+       <fileset dir="${src}/com/sleepycat"/>
+     </copy>
+  </target>
+
+  <target name="dist" depends="compile">
+    <echo> Creating all of the jar files </echo>
+    <mkdir dir="${dist}/lib"/>
+
+    <echo> Creating TERp jar file </echo>
+    <jar jarfile="${dist}/lib/${terpexe}.jar" basedir="${build}" excludes="**/*.java,**/ter/*">
+      <manifest>
+          <attribute name="Main-Class" value="${terpexe_mc}"/>
+      </manifest>
+    </jar>
+
+    <echo> Creating TERcom jar file </echo>
+    <jar jarfile="${dist}/lib/${tercomexe}.jar" basedir="${build}" excludes="**/*.java"
+         includes="**/ter/*.class">
+      <manifest>
+          <attribute name="Main-Class" value="${tercomexe_mc}"/>
+      </manifest>
+    </jar>
+
+    <echo> Creating Optimization jar file </echo>
+    <jar jarfile="${dist}/lib/${optexe}.jar" basedir="${build}" excludes="**/*.java,**/ter/*">
+      <manifest>
+          <attribute name="Main-Class" value="${optexe_mc}"/>
+      </manifest>
+    </jar>
+
+    <echo> Creating Phrase DB Creation jar file </echo>
+    <jar jarfile="${dist}/lib/${cdbexe}.jar" basedir="${build}" excludes="**/*.java,**/ter/*">
+      <manifest>
+          <attribute name="Main-Class" value="${cdbexe_mc}"/>
+      </manifest>
+    </jar>
+  </target>
+
+  <target name="tgz" depends="dist">
+    <echo> PACKING AND COMPRESSING THE PROJECT. </echo>
+    <tar tarfile="${terpexe}.tar" basedir="." includes="data,${src}/**/*,${build}/**/*.class,${dist}/**/*.jar,build.xml" />
+    <gzip zipfile="${terpexe}.tar.gz" src="${terpexe}.tar" />
+    <delete file="${terpexe}.tar" />
+  </target>
+
+  <target name="help">
+    <echo> USING ANT FOR ${ant.project.name}. </echo>
+    <echo> ant [ compile | dist | tgz | clean ] </echo>     
+    <echo> 
+      ant [compile]: compiles the src and put the class files in ${build}
+    </echo>
+    <echo> 
+      ant [dist]: build the jar files and place them in ${dist}/lib. 
+    </echo>
+    <echo> 
+      ant tgz: packs and compresses the source programs. 
+    </echo>
+    <echo> 
+      ant clean: remove the binaries and the compressed pakage. 
+    </echo>
+  </target>
+
+  <target name="clean">
+    <echo> REMOVING BINARIES AND PACKAGE. </echo>
+    <delete dir="${build}"/>
+    <delete dir="${dist}"/>
+    <delete file="${terpexe}.tar.gz"/>
+  </target>
+</project>
