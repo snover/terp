@@ -26,7 +26,7 @@ These instructions are for use on a UNIX-like operating system.
 
     - `<PATH_TO_TERP>` points to the directory where you checked out this repository, such that `<PATH_TO_TERP>/bin/setup_bin.sh` exists. 
 
-    - `<PATH_TO_JAVA>`` points to the root of the Java 1.5.0+ directory such
+    - `<PATH_TO_JAVA>` points to the root of the Java 1.5.0+ directory such
        that `<PATH_TO_JAVA>/bin/java` exists.
            
     - `<PATH_TO_WORDNET>` points to the root of the WordNet 3 installation such that `<PATH_TO_WORDNET>/dict` exists. (**Note**: if you are on OS X, and you installed wordnet using macports with default options, you can set this to `/opt/local/share/WordNet-3.0`).
