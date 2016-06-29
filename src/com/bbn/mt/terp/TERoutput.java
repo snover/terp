@@ -41,7 +41,7 @@ public class TERoutput {
 	    result.rescore_alignment();
 	}
     }
-    
+
     public void rescore_all_alignments(TERcost costfunc) {
 	for (int i = 0; i < results.size(); i++) {
 	    TERalignment result = (TERalignment) results.get(i);
@@ -59,11 +59,11 @@ public class TERoutput {
     }
 
     public void output() { output(out_prefix); }
-    public void output(String prefix) {       
+    public void output(String prefix) {
 	String saved_prefix = out_prefix;
 
 	out_prefix = getStrippedPrefix(prefix) + refname;
-	if (out_prefix.equals("") || out_prefix.endsWith("/")) 
+	if (out_prefix.equals("") || out_prefix.endsWith("/"))
 	    out_prefix = out_prefix + "terp";
 	if (formats.contains("all") || formats.contains("pra")) output_pra();
 	//	if (formats.contains("all") || formats.contains("pra_more")) output_pra_more();
@@ -80,13 +80,13 @@ public class TERoutput {
 	if (formats.contains("all") || formats.contains("align_detail")) output_align_detail();
 
 	//	if (formats.contains("all") || formats.contains("phrases")) output_phrases();
-	out_prefix = prefix;	
+	out_prefix = prefix;
 	if (formats.contains("all") || formats.contains("nist")) output_nist();
 
 	out_prefix = saved_prefix;
     }
 
-    public void output_xml() { output_xml(out_prefix + ".xml"); }; 
+    public void output_xml() { output_xml(out_prefix + ".xml"); };
     public void output_pra() { output_pra(out_prefix + ".pra"); };
     public void output_pra_more() { output_pra_more(out_prefix + ".pra_more"); };
     public void output_ter() { output_ter(out_prefix + ".ter"); };
@@ -107,12 +107,12 @@ public class TERoutput {
 	    BufferedWriter out = new BufferedWriter(new FileWriter(fname));
 	    out.write("<HTML>\n");
 	    out.write("<HEAD><TITLE>TERp Results</TITLE>\n" +
-		      "<LINK REL=StyleSheet HREF=\"http://www.umiacs.umd.edu/~snover/terp/terp_style.css\" TYPE=\"text/css\" MEDIA=all>" +
+		      "<LINK REL=StyleSheet HREF=\"http://www.desilinguist.org/stylesheets/terp_style.css\" TYPE=\"text/css\" MEDIA=all>" +
 		      "</HEAD>");
 	    out.write("<BODY>\n");
-	    
+
 	    out.write("<H1><A NAME=\"top\">TERp Results</A></H1>");
-	    out.write("<ul><li>Hypothesis File: " + hyp_fn + 
+	    out.write("<ul><li>Hypothesis File: " + hyp_fn +
 		      "\n<li>Reference File: " + ref_fn + "\n" +
 		      "<li>Ave-Reference File: " + ((reflen_fn == "")?ref_fn:reflen_fn) + "\n</ul>\n");
 
@@ -126,7 +126,7 @@ public class TERoutput {
 		out.write("<TD id=sumsegid><A HREF=\"#seg" + i + "\">" + id + "</A></TD>\n");
 		out.write("<TD id=sumnumwords>" + result.numWords + "</TD>\n");
 		out.write("<TD id=sumterpsc>" + result.score() + "</TD>\n");
-	    }	    
+	    }
 	    out.write("</TABLE>\n");
 
 	    out.write("<BR><hr><BR>");
@@ -145,7 +145,7 @@ public class TERoutput {
 		out.write("<TR><TD id=label>Original Reference</TD><TD id=origtxt>" + result.orig_ref + "</TD></TR>\n");
 		out.write("<TR><TD id=label>Original Hypothesis</TD><TD id=origtxt>" + result.orig_hyp + "</TD></TR>\n");
 		out.write("<TR><TD id=label>Alignment<TD>\n");
-		
+
 		String[][] allalign = result.getAlignmentStringsHtml();
 		if (allalign != null) {
 		    String[] rwords = allalign[0];
@@ -154,7 +154,7 @@ public class TERoutput {
 		    int[] asize = new int[align.length];
 		    String[] hwordsM = new String[hwords.length];
 		    String[] rwordsM = new String[rwords.length];
-			
+
 		    int lastgood = 0;
 		    for (int j = 0; j < align.length; j++) {
 			if (align[j].equals(" ")) align[j] = "M";
@@ -165,7 +165,7 @@ public class TERoutput {
 
 		    for (int start = 0; start < hwords.length; start += bsize) {
 			out.write("<TABLE id=alignment>");
-			String curalign = "";		  
+			String curalign = "";
 
 			out.write("<TR id=refwds>");
 			out.write("<TD id=label>Reference</TD>\n");
@@ -179,7 +179,7 @@ public class TERoutput {
 				out.write("<TD class=align" + align[j] + ">" + rwords[j] + "</TD>");
 			    }
 			}
-  
+
 			out.write("</TR>\n<TR id=align>");
 			out.write("<TD id=label></TD>\n");
 
@@ -199,10 +199,10 @@ public class TERoutput {
 			    }
 			}
 
-			out.write("</TABLE>");			
+			out.write("</TABLE>");
 		    }
 		}
-		
+
 		out.write("</TR>\n");
 		if (result.allshifts != null) {
 		    out.write("<TR><TD id=label>Shifts</TD><TD>\n");
@@ -221,7 +221,7 @@ public class TERoutput {
 			out.write("</TABLE>\n");
 		    }
 		}
-		
+
 		String[][] phrases = result.getSplitPhraseStrings();
 		if (phrases != null) {
 		    out.write("<TR><TD id=label>Phrase Substitutions</TD><TD>\n");
@@ -236,17 +236,17 @@ public class TERoutput {
 			}
 			out.write("</TABLE>\n");
 		    }
-		    
+
 		}
 		out.write("<TR><TD colspan=2><hr id=segborder></TD></TR>");
-	    }   
+	    }
 	    out.write("</TABLE>");
 	    out.write("</BODY></HTML>\n");
 	    out.close();
 	} catch (IOException ioe) {
 	    System.err.println("output html: " + ioe);
 	    System.exit(-1);
-	    
+
 	}
 	return;
     }
@@ -281,25 +281,25 @@ public class TERoutput {
 	}
 	return;
     }
-    
+
     public void output_nist(String prefix) {
 	String rn = refname;
 	try {
-	    for (String sysid : sys_ids.keySet()) {		
+	    for (String sysid : sys_ids.keySet()) {
 		ArrayList<TERid> sids = sys_ids.get(sysid);
 		ArrayList<TERalignment> sresults = sys_results.get(sysid);
-		
+
 		BufferedWriter out_seg = new BufferedWriter(new FileWriter(prefix + sysid + rn + ".seg.scr"));
-		
+
 		HashMap<String, TERalignment> syslevel = new HashMap();
 		HashMap<String, TERalignment> doclevel = new HashMap();
 		ArrayList<String> sysorder = new ArrayList();
 		ArrayList<String> docorder = new ArrayList();
-		
+
 		for (int i = 0; i < sresults.size(); i++) {
 		    TERalignment result = sresults.get(i);
 		    TERid tid = sids.get(i);
-		    if (tid == null) {			
+		    if (tid == null) {
 			System.err.println("WARNING.  Cannot find fields for system: " + sysid + " number: " + i);
 		    } else {
 			if (doclevel.containsKey(tid.toDocString(sysid))) {
@@ -327,14 +327,14 @@ public class TERoutput {
 			out_seg.write(tid.toSegString(sysid) + "\t" + result.score() + "\t" + result.numWords + "\n");
 		    }
 		}
-		out_seg.close();		
-		
+		out_seg.close();
+
 		BufferedWriter out_doc = new BufferedWriter(new FileWriter(prefix + sysid + rn + ".doc.scr"));
 		for (int i = 0; i < docorder.size(); i++) {
 		    String tid = docorder.get(i);
 		    TERalignment result = doclevel.get(tid);
 		    out_doc.write(tid + "\t" + result.score() + "\t" + result.numWords + "\n");
-		}		
+		}
 		out_doc.close();
 
 		BufferedWriter out_sys = new BufferedWriter(new FileWriter(prefix + sysid + rn + ".sys.scr"));
@@ -342,8 +342,8 @@ public class TERoutput {
 		    String tid = sysorder.get(i);
 		    TERalignment result = syslevel.get(tid);
 		    out_sys.write(tid + "\t" + result.score() + "\t" + result.numWords + "\n");
-		}		
-		out_sys.close();	    
+		}
+		out_sys.close();
 	    }
 	} catch (IOException ioe) {
 	    System.err.println("NIST Output " + ioe);
@@ -351,7 +351,7 @@ public class TERoutput {
 	}
 	return;
     }
-    
+
     public void output_weights(String fname) {
 	try {
 	    BufferedWriter out = new BufferedWriter(new FileWriter(fname));
@@ -364,7 +364,7 @@ public class TERoutput {
             System.err.println("Weight Output " + ioe);
 	    System.exit(-1);
         }
-        return;	
+        return;
     }
 
     public void output_counts(String fname) {
@@ -376,7 +376,7 @@ public class TERoutput {
 		double weights[] = ta.norm_weight_vector();
 		out.write(tid.toPureSegGuid() + " " + TERalignment.join(" ", weights) + "\n");
 	    }
-	    out.close();		
+	    out.close();
 	} catch (IOException ioe) {
 	    System.err.println("Count Output " + ioe);
 	    System.exit(-1);
@@ -408,7 +408,7 @@ public class TERoutput {
 
   	a single line is output for every word/word alignment.
 	if there is a multi-word or phrasal alignment of < h_1, ..., h_m > to < r_1, ..., r_n >
-           then a line is output for each of the m x n combinations. 
+           then a line is output for each of the m x n combinations.
 	*/
 	try {
 	    BufferedWriter out = new BufferedWriter(new FileWriter(fname));
@@ -416,12 +416,12 @@ public class TERoutput {
 		TERalignment.AlignDetail[] detail_align = getResult(tid).getAlignDetail();
 		if (detail_align != null) {
 		    for (int i = 0; i < detail_align.length; i++) {
-			TERalignment.AlignDetail ad = detail_align[i];		       
+			TERalignment.AlignDetail ad = detail_align[i];
 			if ((ad.ref_ind >= 0) && (ad.hyp_ind >= 0)) {
 			    String tr = String.format("%s %d %d",
 						      tid.toString(), ad.ref_ind+1, ad.hyp_ind+1);
-			    out.write(tr + "\n");				
-			}  
+			    out.write(tr + "\n");
+			}
 		    }
 		}
 	    }
@@ -441,7 +441,7 @@ public class TERoutput {
 	an index of 0 indicates that it is aligned to nothing (or the NULL word)
   	  a single line is output for every word/word alignment.
 	  if there is a multi-word or phrasal alignment of < h_1, ..., h_m > to < r_1, ..., r_n >
-             then a line is output for each of the m x n combinations. 
+             then a line is output for each of the m x n combinations.
 	*/
 	try {
 	    BufferedWriter out = new BufferedWriter(new FileWriter(fname));
@@ -449,12 +449,12 @@ public class TERoutput {
 		TERalignment.AlignDetail[] detail_align = getResult(tid).getAlignDetail();
 		if (detail_align != null) {
 		    for (int i = 0; i < detail_align.length; i++) {
-			TERalignment.AlignDetail ad = detail_align[i];		       
+			TERalignment.AlignDetail ad = detail_align[i];
 			String tr = String.format("%s %d %d %s %d %f %d <r>%s</r> <h>%s</h>",
 						  tid.toString(), ad.ref_ind+1, ad.hyp_ind+1,
-						  ad.edit, ad.edit_num, ad.edit_cost, ad.num_shifts, 
+						  ad.edit, ad.edit_num, ad.edit_cost, ad.num_shifts,
 						  ad.ref_word, ad.hyp_word);
-			out.write(tr + "\n");				  
+			out.write(tr + "\n");
 		    }
 		}
 	    }
@@ -499,13 +499,13 @@ public class TERoutput {
 	    BufferedWriter out = new BufferedWriter(new FileWriter(fname));
 	    for (TERid tid : getIds()) {
 		TERalignment result = getResult(tid);
-		out.write(tid.sys_id + "\t" + 
+		out.write(tid.sys_id + "\t" +
 			  tid.toStringNoSys() + "\t" +
 			  result.hyp.length + "\t" +
 			  TERalignment.join(":", "%.2f", result.getHypEdits()) + "\t" +
-			  String.format("%.2f\t", result.getHypOthEdits()) + 
-			  String.format("%.2f\t", result.numEdits) + 
-			  String.format("%.2f\t", result.numWords) + 
+			  String.format("%.2f\t", result.getHypOthEdits()) +
+			  String.format("%.2f\t", result.numEdits) +
+			  String.format("%.2f\t", result.numWords) +
 			  String.format("%.2f\n", result.score()));
 	    }
 	    out.close();
@@ -523,7 +523,7 @@ public class TERoutput {
 	    for (int i = 0; i < results.size(); i++) {
 		TERalignment ta = results.get(i);
 		ta.scoreDetails();
-		TERsgml.writeXMLAlignment(out, ta, ids.get(i).toString(), 
+		TERsgml.writeXMLAlignment(out, ta, ids.get(i).toString(),
 					  (terin.in_ref_format() == 1));
 	    }
 	    TERsgml.writeXMLFooter(out);
@@ -556,15 +556,15 @@ public class TERoutput {
 	    BufferedWriter out = new BufferedWriter(new FileWriter(fname));
 	    out.write("Hypothesis File: " + hyp_fn + "\nReference File: " + ref_fn + "\n" +
 		      "Ave-Reference File: " + ((reflen_fn == "")?ref_fn:reflen_fn) + "\n");
- 	    out.write(String.format("%1$-" + maxIdLen + "s | %2$-6s | %3$-6s | %4$-6s | %5$-6s | %6$-6s | %7$-6s | %8$-6s | %9$-6s | %10$-8s | %11$-8s | %12$-8s\n", 
+ 	    out.write(String.format("%1$-" + maxIdLen + "s | %2$-6s | %3$-6s | %4$-6s | %5$-6s | %6$-6s | %7$-6s | %8$-6s | %9$-6s | %10$-8s | %11$-8s | %12$-8s\n",
 				    "ID", "Ins", "Del", "Sub", "Stem", "Syn", "Phrase", "Shft", "WdSh", "NumEr", "NumWd", "TERp"));
 	    out.write("-------------------------------------------------------------------------------------------------------------------------------------------------\n");
 
 	    for (TERid tid : getIds()) {
 		TERalignment result = getResult(tid);
 		result.scoreDetails();
-		out.write(String.format("%1$-" + maxIdLen + "s | %2$6d | %3$6d | %4$6d | %5$6d | %6$6d | %7$6d | %8$6d | %9$6d | %10$8.3f | %11$8.3f | %12$8.3f\n", 
-					tid.toString(), result.numIns, result.numDel, result.numSub, result.numStem, result.numSyn, result.numPara, 
+		out.write(String.format("%1$-" + maxIdLen + "s | %2$6d | %3$6d | %4$6d | %5$6d | %6$6d | %7$6d | %8$6d | %9$6d | %10$8.3f | %11$8.3f | %12$8.3f\n",
+					tid.toString(), result.numIns, result.numDel, result.numSub, result.numStem, result.numSyn, result.numPara,
 					result.numSft, result.numWsf, result.numEdits, result.numWords, result.score()*100.0));
 		tot_ins += result.numIns;
 		tot_del += result.numDel;
@@ -578,7 +578,7 @@ public class TERoutput {
 		tot_wds += result.numWords;
 	    }
 	    out.write("-------------------------------------------------------------------------------------------------------------------------------------------------\n");
-	    out.write(String.format("%1$-" + maxIdLen + "s | %2$6d | %3$6d | %4$6d | %5$6d | %6$6d | %7$6d | %8$6d | %9$6d | %10$8.3f | %11$8.3f | %12$8.3f\n", 
+	    out.write(String.format("%1$-" + maxIdLen + "s | %2$6d | %3$6d | %4$6d | %5$6d | %6$6d | %7$6d | %8$6d | %9$6d | %10$8.3f | %11$8.3f | %12$8.3f\n",
 				    "TOTAL", tot_ins, tot_del, tot_sub, tot_stem, tot_syn, tot_para, tot_sft, tot_wsf, tot_err, tot_wds, tot_err*100.0/tot_wds));
 	    out.close();
 	} catch (IOException ioe) {
@@ -592,7 +592,7 @@ public class TERoutput {
 	    BufferedWriter out = new BufferedWriter(new FileWriter(fname));
 	    out.write("Hypothesis File: " + hyp_fn + "\nReference File: " + ref_fn + "\n" +
 		      "Ave-Reference File: " + ((reflen_fn == "")?ref_fn:reflen_fn) + "\n");
- 	    out.write(String.format("%1$-40s %2$-6s %3$-6s %4$-6s %5$-6s %6$-6s %7$-6s %8$-6s %9$-6s %10$-8s %11$-8s %12$-8s\n", 
+ 	    out.write(String.format("%1$-40s %2$-6s %3$-6s %4$-6s %5$-6s %6$-6s %7$-6s %8$-6s %9$-6s %10$-8s %11$-8s %12$-8s\n",
 				    "ID", "Ins", "Del", "Sub", "Stem", "Syn", "Phrase", "Shft", "WdSh", "NumEr", "NumWd", "TERp"));
 	    out.write("-------------------------------------------------------------------------------------------------------------------------------------------------\n");
 
@@ -602,12 +602,12 @@ public class TERoutput {
 		TERid tid = (TERid) me.getKey();
 		TERalignment result = (TERalignment) me.getValue();
 		result.scoreDetails();
-		out.write(String.format("%1$-40s %2$6d %3$6d %4$6d %5$6d %6$6d %7$6d %8$6d %9$6d %10$8.3f %11$8.3f %12$8.3f\n", 
-					tid.toString(), result.numIns, result.numDel, result.numSub, result.numStem, result.numSyn, result.numPara, 
+		out.write(String.format("%1$-40s %2$6d %3$6d %4$6d %5$6d %6$6d %7$6d %8$6d %9$6d %10$8.3f %11$8.3f %12$8.3f\n",
+					tid.toString(), result.numIns, result.numDel, result.numSub, result.numStem, result.numSyn, result.numPara,
 					result.numSft, result.numWsf, result.numEdits, result.numWords, result.score()*100.0));
 	    }
 	    out.write("-------------------------------------------------------------------------------------------------------------------------------------------------\n");
-	    out.close();	    
+	    out.close();
 	} catch (IOException ioe) {
 	    System.err.println("output sum_nbest: " + ioe);
 	    System.exit(-1);
@@ -625,14 +625,14 @@ public class TERoutput {
 	this.results.add(ta);
 	this.ids.add(id);
 	//	this.idrankmap.put(id, id_nrank);
-	
+
 	sys_results.get(id.sys_id).add(ta);
 	//	((ArrayList) sys_results.get(sys_name)).add(ta);
 	sys_ids.get(id.sys_id).add(id);
 	sorted_sys_segs.get(id.sys_id).put(id, ta);
 
 	seg_guid_ids.add(id.toSegGuid(id.sys_id));
-	seg_guid_results.put(id.toSegGuid(id.sys_id), ta);	    
+	seg_guid_results.put(id.toSegGuid(id.sys_id), ta);
 	sorted_segs.put(id, ta);
     }
 
