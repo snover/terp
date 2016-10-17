@@ -223,6 +223,22 @@ the Challenge.
 
 If either phrase is blank (e.g., `<p> </p>` for example) or if the two phrases are identical, the paraphrase will not be inserted into the phrase table.
 
+## What is the TRANS format?
+
+The TRANS format was developed specifically for translation systems and requires that the hypothesis and the reference files have one segment/sentence per line but ALSO that each line should have an id following it after a space and in parentheses. These IDs generally take the form of `[SYSTEM_NAME][DOCUMENT_ID][SEGMENT_NUMBER]`. For example, here are an example hypothesis and reference files in TRANS format.
+
+```bash
+$> cat ref.trans
+i am nice ([sys][doc][1])
+i am good ([sys][doc][2])
+i am bad ([sys][doc][3])
+
+$> cat hyp.trans
+i am nice ([sys][doc][1])
+i am good ([sys][doc][2])
+i am wild ([sys][doc][3])
+```
+
 ## Citing TERp
 
 References to TERp should cite:
