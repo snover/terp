@@ -12,7 +12,7 @@ These instructions are for use on a UNIX-like operating system.
 
 2. Build TERp by running `ant clean; ant` in the root of the repository.
 
-3. Download and install [WordNet version 3.0](http://wordnet.princeton.edu/wordnet/download/current-version/). (**Note**: if you are on OS X, and are using macports, you can simply do `sudo port install wordnet`.)
+3. Download and install [WordNet version 3.0](https://wordnet.princeton.edu/download/current-version). (**Note**: if you are on OS X, and are using macports, you can simply do `sudo port install wordnet`.)
 
 4. Download the compressed paraphrase table (`unfiltered_phrasetable.txt.gz`) from the GitHub releases page to the `data` directory and uncompress it.
 
