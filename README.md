@@ -6,13 +6,13 @@ For a technical description of TERp, please refer to `doc/terp_description.pdf`.
 
 ## Installation and Setup
 
-These instructions are for use on a UNIX-like operating system.  
+These instructions are for use on a UNIX-like operating system.
 
 1. TERp requires Java version 1.5.0 or higher.
 
 2. Build TERp by running `ant clean; ant` in the root of the repository.
 
-3. Download and install [WordNet version 3.0](http://wordnet.princeton.edu/wordnet/download/current-version/). (**Note**: if you are on OS X, and are using macports, you can simply do `sudo port install wordnet`.)
+3. Download and install [WordNet version 3.0](https://wordnet.princeton.edu/download/current-version). Make sure you use version 3.0, not 2.1. (**Note**: if you are on OS X, and are using macports, you can simply do `sudo port install wordnet`.)
 
 4. Download the compressed paraphrase table (`unfiltered_phrasetable.txt.gz`) from the GitHub releases page to the `data` directory and uncompress it.
 
@@ -21,18 +21,18 @@ These instructions are for use on a UNIX-like operating system.
     ```bash
     bin/setup_bin.sh <PATH_TO_TERP> <PATH_TO_JAVA> <PATH_TO_WORDNET>
     ```
-     
+
      where:
 
-    - `<PATH_TO_TERP>` points to the directory where you checked out this repository, such that `<PATH_TO_TERP>/bin/setup_bin.sh` exists. 
+    - `<PATH_TO_TERP>` points to the directory where you checked out this repository, such that `<PATH_TO_TERP>/bin/setup_bin.sh` exists.
 
     - `<PATH_TO_JAVA>` points to the root of the Java 1.5.0+ directory such
        that `<PATH_TO_JAVA>/bin/java` exists.
-           
+
     - `<PATH_TO_WORDNET>` points to the root of the WordNet 3 installation such that `<PATH_TO_WORDNET>/dict` exists. (**Note**: if you are on OS X, and you installed wordnet using macports with default options, you can set this to `/opt/local/share/WordNet-3.0`).
 
     Running this script will create the following additional wrapper scripts:
-    
+
     - `bin/terp`
     - `bin/terpa`
     - `bin/terp_ter`
@@ -44,15 +44,15 @@ These instructions are for use on a UNIX-like operating system.
 
     - `data/data_loc.param`
 
-6. Generate a TERp compatible paraphrase table from the text-based paraphrase file you downloaded in Step 4 by running: 
+6. Generate a TERp compatible paraphrase table from the text-based paraphrase file you downloaded in Step 4 by running:
 
     ```bash
     bin/create_phrasedb data/unfiltered_phrasetable.txt data/phrases.db
     ```
 
-    **IMPORTANT**: 
-   
-    This step could take a while and will require several gigabytes of diskspace, as the text version of the phrase table is converted to a Berkley style database.  The conversion tool also expects to have 1-3 GBs of memory available.  This requirement can be reduced if necessary in the bin/create_phrasedb script. 
+    **IMPORTANT**:
+
+    This step could take a while and will require several gigabytes of diskspace, as the text version of the phrase table is converted to a Berkley style database.  The conversion tool also expects to have 1-3 GBs of memory available.  This requirement can be reduced if necessary in the bin/create_phrasedb script.
 
     This step will generate a phrase table database in `data/phrases.db` and will only need to be run once. Running this step again will add to the existing database, not overwrite it.
 
@@ -254,7 +254,7 @@ References to TERp should cite:
 
 ## License
 
-TERp is distributed under the the LGPL as described in `LICENSE.md`. 
+TERp is distributed under the the LGPL as described in `LICENSE.md`.
 
 However, TERp uses Berkeley DB Java Edition version 3.3.75, which is distributed under a separate license (see `LICENSE_DB.txt`). While the core classes of the Berkeley DB are included in the TERp release, the source code is available [here](http://www.oracle.com/technetwork/database/database-technologies/berkeleydb/overview/index.html).
 
